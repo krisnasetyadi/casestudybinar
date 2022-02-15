@@ -24,8 +24,8 @@ npm start (in server)
 localhost:5000
 
 ## Client Routes
-http://localhost:3000/register
-http://localhost:3000/login
-http://localhost:3000/dashboard
-http://localhost:3000/todo-list
+- http://localhost:3000/register
+- http://localhost:3000/login
+- http://localhost:3000/dashboard
+- http://localhost:3000/todo-list
 
