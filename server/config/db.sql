@@ -11,4 +11,9 @@ CREATE TABLE binar_users(
 -- create extension if not exists "uuid-ossp";
 
 -- fake user
-INSERT INTO binar_users (user_name,user_email,user_password) VALUES ('john','john@gmail.com','john123')
+INSERT INTO binar_users (user_name,user_email,user_password) VALUES ('john','john@gmail.com','john123');
+
+-- TODO
+CREATE TABLE todos(todo_id SERIAL PRIMARY KEY, description VARCHAR(250));
+
+-- Fake value

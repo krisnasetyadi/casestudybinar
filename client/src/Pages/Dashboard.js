@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react';
 import {Button} from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import {Link} from 'react-router-dom';
 
 export default function Dashboard({setAuth}) {
   const [name,setName]=useState("")
@@ -33,6 +34,7 @@ export default function Dashboard({setAuth}) {
     <>
       <h1>Dashboard {name}</h1>
       <Button variant='primary' onClick={e=>logout(e)}>Logout</Button>
+      <Link to='/todo-list'>Make a Todo List</Link>
     </>
   );
 }

@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import InputTodo from './Pages/InputTodo';
 
 toast.configure()
 
@@ -38,6 +39,8 @@ function App() {
         <Route exact path='/login' element={ !isAuthenticated ? (<Login setAuth={setAuth}/>)
         :(<Navigate to='/dashboard'/>)}/>
         <Route exact path='/dashboard' element={ isAuthenticated ? (<Dashboard setAuth={setAuth}/>)
+        :(<Navigate to='/login'/>)}/>
+        <Route exact path='/todo-list' element={isAuthenticated ? (<InputTodo setAuth={setAuth}/>)
         :(<Navigate to='/login'/>)}/>
       </Routes>
     </div>
