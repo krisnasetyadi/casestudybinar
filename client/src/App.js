@@ -40,8 +40,7 @@ function App() {
         :(<Navigate to='/dashboard'/>)}/>
         <Route exact path='/dashboard' element={ isAuthenticated ? (<Dashboard setAuth={setAuth}/>)
         :(<Navigate to='/login'/>)}/>
-        <Route exact path='/todo-list' element={isAuthenticated ? (<InputTodo setAuth={setAuth}/>)
-        :(<Navigate to='/login'/>)}/>
+        <Route exact path='/todo-list' element={<InputTodo/>}/>
       </Routes>
     </div>
   );

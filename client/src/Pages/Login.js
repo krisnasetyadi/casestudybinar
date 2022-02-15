@@ -37,9 +37,9 @@ export default function Login({setAuth}) {
             width:"300px",
             margin:'auto'
           }}>
-          <h1>Login</h1>
-        <Form.Group>
-          <Form.Label>Email</Form.Label>
+          <h1 className='text-center my-3'>Login</h1>
+        <Form.Group className='my-3'>
+          <Form.Label><b>Email</b></Form.Label>
           <Form.Control 
           style={{
             width:"300px"
@@ -47,17 +47,17 @@ export default function Login({setAuth}) {
           type="text" 
           value={email}
           placeholder="email"
-          className="my-3" 
+          className="my-2" 
           onChange={(e=>setEmail(e.target.value))}
           required
           />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label><b>Password</b></Form.Label>
           <Form.Control 
           type='password' 
           placeholder='Password'
-          className="my-3" 
+          className="my-2" 
           value={password} 
           onChange={(e=>setPassword(e.target.value))}
           style={{
@@ -66,8 +66,15 @@ export default function Login({setAuth}) {
           required
           />
         </Form.Group>
-        <Button variant="success" className="btn-block" type="submit">Login</Button>
-        <Link to='/register'>Register</Link>
+        <div className='my-3 text-center'>
+        <Button 
+        variant="success" 
+        className="btn-block" 
+        type="submit">
+          Login
+          </Button>
+        </div>
+        <p>Haven't an account ? click here! <Link to='/register'>Register</Link> </p>
       </Form>
     </>
   );

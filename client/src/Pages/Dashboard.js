@@ -2,6 +2,7 @@ import React,{ useEffect, useState } from 'react';
 import {Button} from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import {Link} from 'react-router-dom';
+import {FcTodoList} from 'react-icons/fc';
 
 export default function Dashboard({setAuth}) {
   const [name,setName]=useState("")
@@ -14,7 +15,6 @@ export default function Dashboard({setAuth}) {
         headers:{token:localStorage.token}
         })
         const parseResponse = await response.json()
-        // console.log(parseResponse)
         setName(parseResponse.user_name)
     } catch (err) {
       console.error(err.message)
@@ -31,10 +31,20 @@ export default function Dashboard({setAuth}) {
     getName()
   },[])
   return (
-    <>
-      <h1>Dashboard {name}</h1>
-      <Button variant='primary' onClick={e=>logout(e)}>Logout</Button>
-      <Link to='/todo-list'>Make a Todo List</Link>
-    </>
+    <div className='text-center'>
+      <h1><b>Welcome Back, {name.toUpperCase()}</b></h1>
+      <div style={{marginTop:'50px'}} >
+      <Link to='/todo-list'>
+        <FcTodoList style={{width:'100px', height:'100px'}}/>
+        </Link>
+        <h6>Click this <u><b>icon</b></u> to Make a List</h6>
+      </div>
+        <Button
+        style={{marginTop:'50px'}}
+        variant='warning'
+         onClick={e=>logout(e)}>
+           <b>Logout</b>
+         </Button>
+    </div>
   );
 }

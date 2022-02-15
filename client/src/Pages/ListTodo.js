@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from "react";
 import { Table, Button } from "react-bootstrap";
 import EditTodo from "./EditTodo";
+import {CgCloseR} from 'react-icons/cg'
 
 export default function ListTodos(){
     const [todos, setTodos] = useState([])
@@ -34,21 +35,26 @@ export default function ListTodos(){
             margin:'auto',
             marginTop:'50px'
           }}>
-        <h2 className="text-center"> My List </h2>
-        <Table striped bordered hover size="sm" >
+        <h2 className="text-center"><b>My Todo List</b>  </h2>
+        <Table striped bordered hover size="sm" variant="info" >
             <thead>
                 <tr className="text-center">
-                    <th><h5 ><b>Description</b></h5></th>
-                    <th><h5 ><b>Edit</b></h5></th>
-                    <th><h5 ><b>Delete</b></h5></th>
+                    <th><h4 ><b>Description</b></h4></th>
+                    <th><h4 ><b>Edit</b></h4></th>
+                    <th><h4 ><b>Delete</b></h4></th>
                 </tr>
             </thead>
             <tbody className="text-center">
                 {todos.map(todo=>(
                     <tr key={todo.todo_id}>
-                        <td>{todo.description}</td>
+                        <td><b>{todo.description.toUpperCase()}</b></td>
                         <td><EditTodo todo={todo}/></td>
-                        <td><Button variant='danger' onClick={()=>deleteHandler(todo.todo_id)}>Delete</Button></td>
+                        <td><Button 
+                        variant='danger' 
+                        onClick={()=>deleteHandler(todo.todo_id)}>
+                            {<CgCloseR style={{width:'25px', height:'25px'}}/>}
+                            </Button>
+                        </td>
 
                     </tr>
                 )

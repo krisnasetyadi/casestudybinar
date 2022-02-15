@@ -39,7 +39,7 @@ export default function Register({setAuth}) {
           }}>
           <h1 className='text-center my-3'>Register</h1>
         <Form.Group>
-          <Form.Label>Username</Form.Label>
+          <Form.Label><b>Username</b></Form.Label>
           <Form.Control 
          
           className='my-2'
@@ -52,7 +52,7 @@ export default function Register({setAuth}) {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Email</Form.Label>
+          <Form.Label><b>Email</b></Form.Label>
           <Form.Control 
          
           className='my-2'
@@ -65,7 +65,7 @@ export default function Register({setAuth}) {
         </Form.Group>
 
         <Form.Group>
-          <Form.Label>Password</Form.Label>
+          <Form.Label><b>Password</b></Form.Label>
           <Form.Control 
           className='my-2'
           type='password' 
@@ -75,11 +75,13 @@ export default function Register({setAuth}) {
           required
           />
         </Form.Group>
-
+        <div className='text-center'
+        style={{marginTop:'10px'}}>
         <Button variant="success" 
         className='my-2 btn-success btn-block' 
         type='submit'>Register</Button>
-        <Link to='/login'>Login</Link>
+        </div>
+        <p className='text-center' style={{marginTop:'10px'}}>Have an account ? click here ! <Link to='/login'> Login</Link></p>
       </Form>
       
     </div>

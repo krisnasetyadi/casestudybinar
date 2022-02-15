@@ -1,25 +1,35 @@
 import React,{useState} from "react";
 import { Modal, Button, Form } from "react-bootstrap";
+import {BsPencilSquare} from 'react-icons/bs';
 
-export default function EditTodo(todo){
+export default function EditTodo({todo}){
     const [show,setShow] = useState(false);
     const [description, setDescription] = useState(todo.description);
     const handleShow = ()=> setShow(true);
     const handleClose = () => setShow(false);
 
-    function updateDescription(e){
+    async function updateDescription(e){
         e.preventDefault()
         try {
-            
+            const body = {description};
+            const response = await fetch(
+                `http://localhost:5000/todo/todos/${todo.todo_id}`,{
+
+                method:"PUT",
+                headers:{"Content-Type":"application/json"},
+                body: JSON.stringify(body)
+            });
+            response.json()
+            window.location='/todo-list';
         } catch (err) {
             console.error(err.message);
         }
     }
     return(
         <>
-        <Button variant="primary" onClick={handleShow} 
+        <Button variant="warning" onClick={handleShow} 
         data-target={`#id${todo.todo_id}`}>
-            Edit
+            {<BsPencilSquare style={{width:'25px', height:'25px'}}/>}
         </Button>
 
         <Modal show={show} onHide={handleClose}
